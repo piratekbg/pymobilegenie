@@ -76,15 +76,21 @@ op_choice = operator_selector()
 header_print("yellow","cyan","dark_blue")
 rprint(f"[bold][red underline]You chose : [/red underline]\n[red]Operator:[/red]  [cyan]{list(op_choice)[0]}[/cyan]\n[red]Prefixes:[/red] [yellow]{[str(p) for p in list(op_choice[list(op_choice)[0]])]}[/yellow][/bold]")
 
-numbers = numbers_generator(op_choice[list(op_choice)[0]])
+numbers = numbers_generator(op_choice[list(op_choice)[0]],True)
 #print(numbers)
 header_print("yellow","cyan","dark_blue")
 file_name = str(f"{list(op_choice)[0]}_numbers_export.txt")
-rprint(f"Exporting to file {file_name}")
+rprint(f"[bold red]Exporting to file [/][bold cyan]{file_name}[/]")
 with open(file_name, "w") as f:
 	for number in track(numbers, description="[bold green]Exporting...[/]"):
 		f.write(number+"\n")
 	f.close()
 	
-
+header_print("yellow","cyan","dark_blue")
+rprint(f"[blink bold cyan]Done...[/]")
+w8(5)
+header_print("yellow","cyan","dark_blue")	
+rprint(f"[bold dark_red on white]THERE IS NO POWER THAT IS NO KNOWLEDGE![/]")
+w8(5)
+os.system("clear")
 	
